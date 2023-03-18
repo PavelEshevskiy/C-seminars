@@ -5,82 +5,76 @@
 
 //1, -7, 567, 89, 223-> 3
 
-int OutputNum(string s)
-{
-    int[] Array = new int[s.Length];
-    //string s = (int) char [] array = s.ToCharArray();
-    // string s = char[] array = new char [s.Length];
-    // for(int i = 0; i < s.Length; i++)
-    // {
-    // array[i] = s[i];
-    // }
-    return Array;
-}
 
-void ShowArray(int [] Array)
-{
-    Console.Write($"Получившийся массив -> ");
+// using System.Linq;
 
-    for(int i = 0;i < array.Length;i++ )
-    {
-        Array[i] = Convert.ToInt32(s[i]);
-        Console.Write (array[i]+" ");
-    }
-    Console.WriteLine();
-}
+// Console.Write("Input M integers numbers separated by spaces:");
+// var numbers = Console.ReadLine();
 
-Console.WriteLine("Введите numbers");
-string s = Console.ReadLine();
-
-OutputNum(s);
-Console.WriteLine();
-ShowArray(Array);
-
-
-// int [] CreateRandomArray(int size, int minValue,int maxValue)  //min нижнее ограничение max верхнее ограничение
+// int[] array = numbers.Split(' ')
+//                             .Select(int.Parse)
+//                             .ToArray();
+  
+// for (int i = 0; i < array.Length; i++)
 // {
-// int [] newArray = new int [size]; //тип массива int, выделяем память под тип int size штук 
-
-//     for(int i=0;i < size; i++)
-//     {
-//         newArray[i] = new Random().Next(minValue, maxValue + 1);
-//     }
-//     return newArray;
+//     Console.Write(array[i] + " ");
 // }
 
-// void ShowArray(int [] array)
+// int OutputPosNum(int [] array)
 // {
-//     Console.Write($"Получившийся массив -> ");
-
-//     for(int i = 0;i < array.Length;i++ )
+//     int count = 0;
+//     for (int i = 0; i < array.Length; i++)
 //     {
-//         Console.Write (array[i]+" ");
+//         if (array[i] > 0)
+//         {
+//             count++;
+//         }
 //     }
-//     Console.WriteLine();
+//     return count;
 // }
 
-// int [] ReverseArray(int[] array)
-// {
-//     for (int i = 0; i < array.Length / 2; i++)
-//     {
-//         int temp = array[i];
-//         array [i] = array[array.Length - 1 - i];
-//         array[array.Length - 1 - i] = temp;
-//     }
-//     return array;
-// }
+// Console.WriteLine();
+// Console.WriteLine ($"Number of numbers greater than 0 -> {OutputPosNum(array)}");
 
-// Console.WriteLine("Введите минимальное значение элемента");
-// int min = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Введите максимальное значение элемента");
-// int max = Convert.ToInt32(Console.ReadLine());
-// int [] myArray = CreateRandomArray(a, min, max);
-// ShowArray(myArray);
-// myArray = ReverseArray(myArray);
-// ShowArray(myArray);
 
 //Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
 //заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 
 //задаются пользователем.
 
 //b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+
+void IntersectionStraightLine(double b1, double k1, double b2, double k2)
+{
+    double x = Math.Round(-(b1 - b2) / (k1 - k2), 3);
+    double y = Math.Round(k1 * x + b1, 3);
+    if ((k1 == k2) && (b1 == b2))
+    {
+        Console.WriteLine("Straight lines match");
+    }
+    else if (k1 == k2)
+    {
+        Console.WriteLine("Straight lines is parallel");
+    }
+    else
+    {
+        Console.WriteLine($"Lines do not intersect in point: ({x},{y})");
+    }
+}
+
+Console.Write("Input b1: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Input k1: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("input b2: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Input k2: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+ 
+IntersectionStraightLine(b1, k1, b2, k2);
+
+ 
+// x = Math.Round(x, 3);
+// y = Math.Round(y, 3);
+ 
+//Console.WriteLine($"Пересечение в точке: ({x};{y})");
