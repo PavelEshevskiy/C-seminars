@@ -43,25 +43,25 @@
 //M = 1; N = 5. -> "1, 2, 3, 4, 5"
 //M = 4; N = 8. -> "4, 5, 6, 7, 8"
 
-// void ShowNumbersMN(int n, int m)
-// {
-//     if(n!=m)
-//     {
-//         if(n>=m)
-//         {
-//           //Console.Write(n+" ");
-//          ShowNumbersMN(n-1,m);
-//          Console.Write(n+", ");
-//         }
-//      else
-//     {
-//         ShowNumbersMN(n,m-1);
-//          Console.Write(m+", ");
-//     }
-//     }
-//     else Console.Write(m+", ");
-// }
-// ShowNumbersMN(4,9);
+void ShowNumbersMN(int n, int m)
+{
+    if(n!=m)
+    {
+        if(n>=m)
+        {
+          //Console.Write(n+" ");
+        ShowNumbersMN(n-1,m);
+        Console.Write(n+", ");
+        }
+        else
+        {
+            ShowNumbersMN(n,m-1);
+            Console.Write(m+", ");
+        }
+    }
+    else Console.Write(m+", ");
+}
+ShowNumbersMN(4,9);
 
 //Задача 4.Напишите программу, которая на вход принимает два числа A и B, и возводит число А 
 //в целую степень B с помощью рекурсии.
@@ -69,15 +69,15 @@
 //A = 3; B = 5 -> 243 (3⁵)
 //A = 2; B = 3 -> 8
 
-int Power(int A, int B) 
-{
-    if (B == 0) return 1;
-    return A * Power(A, B - 1);
-}
+// int Power(int A, int B) 
+// {
+//     if (B == 0) return 1;
+//     return A * Power(A, B - 1);
+// }
 
-int A = 3;
-int B = 5;
+// int A = 3;
+// int B = 5;
 
-int result = Power(A, B);
+// int result = Power(A, B);
 
-Console.WriteLine($"{A} в степени {B} = {result}");
+// Console.WriteLine($"{A} в степени {B} = {result}");
